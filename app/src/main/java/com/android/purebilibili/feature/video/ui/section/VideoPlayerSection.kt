@@ -183,7 +183,7 @@ private fun GesturePercentDigit(
             alphaAnim.snapTo(1f)
             return@LaunchedEffect
         }
-        blurAnim.snapTo(8f)
+        blurAnim.snapTo(6f)
         alphaAnim.snapTo(0.55f)
         launch {
             blurAnim.animateTo(
@@ -200,18 +200,8 @@ private fun GesturePercentDigit(
     AnimatedContent(
         targetState = digit,
         transitionSpec = {
-            (fadeIn(animationSpec = tween(motionSpec.digitEnterFadeDurationMillis)) +
-                scaleIn(
-                    initialScale = 0.9f,
-                    animationSpec = tween(motionSpec.digitScaleDurationMillis)
-                ))
-                .togetherWith(
-                    fadeOut(animationSpec = tween(motionSpec.digitExitFadeDurationMillis)) +
-                        scaleOut(
-                            targetScale = 1.1f,
-                            animationSpec = tween(motionSpec.digitScaleDurationMillis)
-                        )
-                )
+            fadeIn(animationSpec = tween(motionSpec.digitEnterFadeDurationMillis))
+                .togetherWith(fadeOut(animationSpec = tween(motionSpec.digitExitFadeDurationMillis)))
         },
         label = "gesture-percent-digit"
     ) { target ->

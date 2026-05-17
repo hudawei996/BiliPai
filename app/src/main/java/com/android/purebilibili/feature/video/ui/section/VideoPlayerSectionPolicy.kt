@@ -513,10 +513,10 @@ internal data class VideoGestureMotionSpec(
 internal fun resolveVideoGestureMotionSpec(): VideoGestureMotionSpec {
     return VideoGestureMotionSpec(
         digitBlurResetDurationMillis = 220,
-        digitAlphaResetDurationMillis = 220,
-        digitEnterFadeDurationMillis = 130,
-        digitExitFadeDurationMillis = 120,
-        digitScaleDurationMillis = 200,
+        digitAlphaResetDurationMillis = 180,
+        digitEnterFadeDurationMillis = 180,
+        digitExitFadeDurationMillis = 140,
+        digitScaleDurationMillis = 0,
         levelOverlayEnterFadeDurationMillis = 160,
         levelOverlayEnterTransformDurationMillis = 220,
         levelOverlayExitDurationMillis = 200,

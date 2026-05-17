@@ -42,6 +42,7 @@ import androidx.media3.ui.PlayerView
 import com.android.purebilibili.data.model.response.Page
 import com.android.purebilibili.core.util.FormatUtils
 import com.android.purebilibili.feature.video.danmaku.DanmakuManager
+import com.android.purebilibili.feature.video.ui.components.AnimatedGesturePercentText
 import com.android.purebilibili.feature.video.ui.components.SponsorSkipButton
 import com.android.purebilibili.feature.video.ui.components.VideoAspectRatio
 import com.android.purebilibili.feature.video.ui.section.resolveSystemStreamVolumeFromGesture
@@ -458,7 +459,13 @@ fun BangumiGestureIndicator(
                     Spacer(Modifier.height(8.dp))
                     Text("亮度", color = Color.White, fontSize = 14.sp)
                     Spacer(Modifier.height(4.dp))
-                    Text("${(value * 100).toInt()}%", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    AnimatedGesturePercentText(
+                        percent = (value * 100).toInt(),
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        label = "bangumi-brightness-percent"
+                    )
                 }
                 BangumiGestureMode.Volume -> {
                     //  动态音量图标：3 级
@@ -471,7 +478,13 @@ fun BangumiGestureIndicator(
                     Spacer(Modifier.height(8.dp))
                     Text("音量", color = Color.White, fontSize = 14.sp)
                     Spacer(Modifier.height(4.dp))
-                    Text("${(value * 100).toInt()}%", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    AnimatedGesturePercentText(
+                        percent = (value * 100).toInt(),
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        label = "bangumi-volume-percent"
+                    )
                 }
                 BangumiGestureMode.Seek -> {
                     Text(

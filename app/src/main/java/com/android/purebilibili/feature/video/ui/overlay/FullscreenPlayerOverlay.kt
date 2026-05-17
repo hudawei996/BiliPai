@@ -76,6 +76,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 import androidx.compose.runtime.collectAsState
+import com.android.purebilibili.feature.video.ui.components.AnimatedGesturePercentText
 import com.android.purebilibili.feature.video.ui.components.DanmakuSettingsPanel
 import com.android.purebilibili.feature.video.ui.components.VideoAspectRatio
 import com.android.purebilibili.feature.video.ui.components.PlaybackSpeed
@@ -1278,7 +1279,13 @@ private fun GestureIndicator(
                     Spacer(Modifier.height(8.dp))
                     Text("亮度", color = Color.White.copy(alpha = 0.9f), fontSize = 14.sp)
                     Spacer(Modifier.height(4.dp))
-                    Text("${(value * 100).toInt()}%", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    AnimatedGesturePercentText(
+                        percent = (value * 100).toInt(),
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        label = "fullscreen-brightness-percent"
+                    )
                     Spacer(Modifier.height(8.dp))
                     Box(
                         modifier = Modifier
@@ -1309,7 +1316,13 @@ private fun GestureIndicator(
                     Spacer(Modifier.height(8.dp))
                     Text("音量", color = Color.White.copy(alpha = 0.9f), fontSize = 14.sp)
                     Spacer(Modifier.height(4.dp))
-                    Text("${(value * 100).toInt()}%", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    AnimatedGesturePercentText(
+                        percent = (value * 100).toInt(),
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        label = "fullscreen-volume-percent"
+                    )
                     Spacer(Modifier.height(8.dp))
                     Box(
                         modifier = Modifier

@@ -591,6 +591,9 @@ class TopTabStylePolicyTest {
         assertEquals(44.dp, resolveHomeSkinTopTabActionButtonSize())
         assertEquals(24.dp, resolveHomeSkinTopTabActionIconSize())
         assertEquals(4.dp, resolveHomeSkinTopTabIndicatorBottomPadding())
+        assertEquals(32.dp, resolveTopTabSkinStickerIconSize(showText = true))
+        assertEquals(36.dp, resolveTopTabSkinStickerIconSize(showText = false))
+        assertEquals(32.dp, resolveTopTabSkinPartitionIconSize())
     }
 
     @Test
@@ -672,6 +675,8 @@ class TopTabStylePolicyTest {
         assertTrue(itemSource.contains("skinIconPath"))
         assertTrue(itemSource.contains("AsyncImage("))
         assertTrue(itemSource.contains("model = File(skinIconPath)"))
+        assertTrue(itemSource.contains("resolveTopTabSkinStickerIconSize(showText = showText)"))
+        assertTrue(rowCallSource.contains("resolveTopTabSkinPartitionIconSize()"))
         assertTrue(itemSource.indexOf("AsyncImage(") < itemSource.indexOf("imageVector = icon"))
         assertTrue(itemSource.contains("else {"))
         assertTrue(itemSource.contains("resolveTopTabCategoryIcon(categoryKey, uiPreset)"))

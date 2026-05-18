@@ -323,6 +323,11 @@ internal fun resolveHomeSkinTopTabActionIconSize(): Dp = 24.dp
 
 internal fun resolveHomeSkinTopTabIndicatorBottomPadding(): Dp = 4.dp
 
+internal fun resolveTopTabSkinStickerIconSize(showText: Boolean): Dp =
+    if (showText) 32.dp else 36.dp
+
+internal fun resolveTopTabSkinPartitionIconSize(): Dp = 32.dp
+
 internal fun resolveIosTopTabRowHeight(
     isFloatingStyle: Boolean,
     labelMode: Int = com.android.purebilibili.core.store.SettingsManager.TopTabLabelMode.TEXT_ONLY
@@ -778,7 +783,7 @@ private fun LightweightHomeTopTabs(
                         model = File(partitionSkinIconPath),
                         contentDescription = "浏览全部分区",
                         contentScale = ContentScale.Fit,
-                        modifier = Modifier.size(actionIconSize)
+                        modifier = Modifier.size(resolveTopTabSkinPartitionIconSize())
                     )
                 } else {
                     Icon(
@@ -883,7 +888,7 @@ private fun LightweightTopTabItem(
                         model = File(skinIconPath),
                         contentDescription = null,
                         contentScale = ContentScale.Fit,
-                        modifier = Modifier.size(resolveTopTabIconSizeDp(if (showText) 0 else 1).dp)
+                        modifier = Modifier.size(resolveTopTabSkinStickerIconSize(showText = showText))
                     )
                 } else {
                     Icon(

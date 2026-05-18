@@ -84,7 +84,7 @@ data class HomeUiSkinDecoration(
     }
 }
 
-internal fun resolveBottomBarSkinDockIconSize(): Dp = 36.dp
+internal fun resolveBottomBarSkinDockIconSize(): Dp = 40.dp
 
 internal fun resolveBottomBarSkinDockHeight(): Dp = 88.dp
 
@@ -105,9 +105,9 @@ internal fun resolveBottomBarSkinDockLabelFontSize(): TextUnit = 12.sp
 
 internal fun resolveBottomBarSkinDockLabelLineHeight(): TextUnit = 18.sp
 
-internal fun resolveBottomBarMiuixSkinDockIconSize(): Dp = 34.dp
+internal fun resolveBottomBarMiuixSkinDockIconSize(): Dp = 38.dp
 
-internal fun resolveBottomBarCompactSkinHomeIconSize(): Dp = 36.dp
+internal fun resolveBottomBarCompactSkinHomeIconSize(): Dp = 40.dp
 
 internal fun resolveMiuixDockedBottomBarItemHeight(hasUiSkinDecoration: Boolean): Dp {
     return if (hasUiSkinDecoration) {
@@ -302,6 +302,15 @@ private fun resolveBottomBarSkinIconPaths(
                     )
                 )
             }
+        }
+        activeSkin.assetFilePath(activeSkin.manifest.assets.homeChannelIcon)?.let { unselectedPath ->
+            put(
+                BottomNavItem.SETTINGS,
+                BottomBarSkinIconPaths(
+                    unselected = unselectedPath,
+                    selected = activeSkin.assetFilePath(activeSkin.manifest.assets.homeChannelSelectedIcon)
+                )
+            )
         }
     }
 }

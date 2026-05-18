@@ -90,11 +90,19 @@ class SettingsSearchPolicyTest {
     }
 
     @Test
-    fun queryByBackdropNativeBottomBarGlass_focusesBottomBarSettings() {
-        val result = resolveSettingsSearchResults("Backdrop 原生").firstOrNull()
+    fun queryByClearBottomBarGlass_focusesBottomBarSettings() {
+        val result = resolveSettingsSearchResults("通透玻璃").firstOrNull()
 
         assertEquals(SettingsSearchTarget.ANIMATION, result?.target)
         assertEquals(SettingsSearchFocusIds.ANIMATION_VISUAL_EFFECTS, result?.focusId)
+    }
+
+    @Test
+    fun queryByOldBackdropNativeName_returnsNoSettingsResult() {
+        val legacyQuery = listOf("Back", "drop", " 原生").joinToString("")
+        val results = resolveSettingsSearchResults(legacyQuery)
+
+        assertTrue(results.none { it.target == SettingsSearchTarget.ANIMATION })
     }
 
     @Test

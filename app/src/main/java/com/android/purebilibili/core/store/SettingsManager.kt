@@ -104,8 +104,8 @@ enum class BottomBarLiquidGlassPreset(
     ),
     BACKDROP_NATIVE(
         1,
-        "Backdrop 原生",
-        "直接复用 Backdrop 的模糊、透镜和默认高光"
+        "通透玻璃",
+        "更轻的模糊、更低的遮罩和更清晰的背景折射"
     );
 
     companion object {

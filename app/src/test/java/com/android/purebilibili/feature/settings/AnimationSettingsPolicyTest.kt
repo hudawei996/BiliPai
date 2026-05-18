@@ -71,9 +71,19 @@ class AnimationSettingsPolicyTest {
         val bottomBarSource = loadSource(
             "app/src/main/java/com/android/purebilibili/feature/settings/screen/BottomBarSettingsScreen.kt"
         )
+        val settingsManagerSource = loadSource(
+            "app/src/main/java/com/android/purebilibili/core/store/SettingsManager.kt"
+        )
 
         assertTrue(animationSource.contains("底栏液态玻璃预设"))
         assertTrue(animationSource.contains("BottomBarLiquidGlassPreset.entries"))
+        assertTrue(settingsManagerSource.contains("通透玻璃"))
+        assertTrue(settingsManagerSource.contains("更轻的模糊、更低的遮罩和更清晰的背景折射"))
+        val forbiddenExternalName = listOf("Na", "gram", "X").joinToString("")
+        assertFalse(animationSource.contains(forbiddenExternalName))
+        assertFalse(animationSource.contains(forbiddenExternalName.lowercase()))
+        assertFalse(settingsManagerSource.contains(forbiddenExternalName))
+        assertFalse(settingsManagerSource.contains(forbiddenExternalName.lowercase()))
         assertFalse(animationSource.contains("底栏跟随高光"))
         assertFalse(animationSource.contains("getBottomBarInteractiveHighlightEnabled"))
         assertFalse(animationSource.contains("setBottomBarInteractiveHighlightEnabled"))

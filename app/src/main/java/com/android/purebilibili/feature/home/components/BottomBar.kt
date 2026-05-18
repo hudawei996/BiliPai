@@ -1516,17 +1516,17 @@ internal fun resolveBottomBarBackdropNativeSurfaceSpec(
 ): BottomBarBackdropNativeSurfaceSpec {
     val progress = verticalProgress.coerceIn(0f, 1f)
     val transparentBlurRadiusDp = lerp(
-        start = minOf(blurRadiusDp * 0.36f, 7.2f),
-        stop = minOf(blurRadiusDp * 0.46f, 8.6f),
+        start = minOf(blurRadiusDp * 0.22f, 4.8f),
+        stop = minOf(blurRadiusDp * 0.28f, 5.8f),
         fraction = progress
     )
     return BottomBarBackdropNativeSurfaceSpec(
         blurRadiusDp = transparentBlurRadiusDp,
-        refractionHeightDp = lerp(16f, 26f, progress),
-        refractionAmountDp = lerp(14f, 22f, progress),
-        surfaceAlphaMultiplier = lerp(0.58f, 0.40f, progress),
-        highlightAlpha = lerp(0.26f, 0.48f, progress),
-        shadowAlpha = lerp(0.14f, 0.22f, progress),
+        refractionHeightDp = lerp(14f, 22f, progress),
+        refractionAmountDp = lerp(12f, 18f, progress),
+        surfaceAlphaMultiplier = lerp(0.32f, 0.24f, progress),
+        highlightAlpha = lerp(0.10f, 0.18f, progress),
+        shadowAlpha = lerp(0.06f, 0.10f, progress),
         chromaticAberration = false
     )
 }

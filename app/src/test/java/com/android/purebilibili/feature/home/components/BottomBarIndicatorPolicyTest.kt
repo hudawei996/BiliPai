@@ -335,7 +335,7 @@ class BottomBarIndicatorPolicyTest {
     }
 
     @Test
-    fun `backdrop native preset damps bilipai horizontal refraction motion`() {
+    fun `transparent glass preset damps bilipai horizontal refraction motion`() {
         val profile = resolveBottomBarRefractionMotionProfile(
             position = 1.32f,
             velocity = 860f,
@@ -492,7 +492,7 @@ class BottomBarIndicatorPolicyTest {
     }
 
     @Test
-    fun `backdrop native surface stays frosted without jelly distortion`() {
+    fun `transparent glass surface stays clear with lightweight refraction`() {
         val idle = resolveBottomBarBackdropNativeSurfaceSpec(
             blurRadiusDp = 18f,
             verticalProgress = 0f
@@ -506,13 +506,17 @@ class BottomBarIndicatorPolicyTest {
         assertTrue(scrolled.blurRadiusDp >= idle.blurRadiusDp)
         assertTrue(scrolled.refractionHeightDp > idle.refractionHeightDp)
         assertTrue(scrolled.refractionAmountDp > idle.refractionAmountDp)
-        assertTrue(idle.refractionHeightDp >= 16f)
-        assertTrue(idle.refractionAmountDp >= 14f)
-        assertTrue(scrolled.refractionHeightDp <= 26f)
-        assertTrue(scrolled.refractionAmountDp <= 22f)
+        assertTrue(idle.refractionHeightDp >= 14f)
+        assertTrue(idle.refractionAmountDp >= 12f)
+        assertTrue(scrolled.refractionHeightDp <= 22f)
+        assertTrue(scrolled.refractionAmountDp <= 18f)
         assertTrue(scrolled.surfaceAlphaMultiplier < idle.surfaceAlphaMultiplier)
-        assertTrue(idle.surfaceAlphaMultiplier <= 0.58f)
-        assertTrue(scrolled.surfaceAlphaMultiplier <= 0.42f)
+        assertTrue(idle.surfaceAlphaMultiplier <= 0.32f)
+        assertTrue(scrolled.surfaceAlphaMultiplier <= 0.24f)
+        assertTrue(idle.highlightAlpha <= 0.10f)
+        assertTrue(scrolled.highlightAlpha <= 0.18f)
+        assertTrue(idle.shadowAlpha <= 0.06f)
+        assertTrue(scrolled.shadowAlpha <= 0.10f)
         assertTrue(scrolled.highlightAlpha > idle.highlightAlpha)
         assertTrue(scrolled.shadowAlpha > idle.shadowAlpha)
         assertFalse(scrolled.chromaticAberration)
